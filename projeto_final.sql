@@ -15,11 +15,9 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Copiando estrutura do banco de dados para producao
 CREATE DATABASE IF NOT EXISTS `producao` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `producao`;
 
--- Copiando estrutura para tabela producao.auditoria_registros
 CREATE TABLE IF NOT EXISTS `auditoria_registros` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `tabela_origem` varchar(40) NOT NULL,
@@ -31,9 +29,7 @@ CREATE TABLE IF NOT EXISTS `auditoria_registros` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Exportação de dados foi desmarcado.
 
--- Copiando estrutura para tabela producao.clientes
 CREATE TABLE IF NOT EXISTS `clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -47,8 +43,6 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela producao.clientes: ~101 rows (aproximadamente)
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
 INSERT INTO `clientes` (`id`, `nome`, `cnpj_cpf`, `rua`, `numero`, `bairro`, `cep`, `referencia`, `telefone`) VALUES
 	(1, 'João Pedro Alterado', '745.618.767-36', 'Rua Tiradentes', '929', 'Vila Nova', '89482-491', 'Em frente à Escola Municipal', '(46) 91493-1877'),
 	(2, 'Gabriel Costa Silva', '648.509.217-45', 'Rua do Comércio', '768', 'Agronômica', '88740-753', 'Atrás do Terminal Urbano', '(41) 95403-9000'),
@@ -151,9 +145,7 @@ INSERT INTO `clientes` (`id`, `nome`, `cnpj_cpf`, `rua`, `numero`, `bairro`, `ce
 	(99, 'Mariana Alves Fernandes', '565.290.392-32', 'Rua XV de Novembro', '274', 'Itoupava Norte', '88882-142', 'Próximo ao Banco do Brasil', '(46) 98999-3363'),
 	(100, 'Lucas Ferreira Rodrigues', '404.299.942-28', 'Rua José Boiteux', '852', 'Itoupava Norte', '89606-274', 'Próximo ao Banco do Brasil', '(44) 98938-1244'),
 	(101, 'Joãozinho do Grau', '9999999999', 'Rua 244', '01', 'Centro', '89595000', '', '49 9999999');
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 
--- Copiando estrutura para tabela producao.fornecedores
 CREATE TABLE IF NOT EXISTS `fornecedores` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -166,8 +158,6 @@ CREATE TABLE IF NOT EXISTS `fornecedores` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela producao.fornecedores: ~102 rows (aproximadamente)
-/*!40000 ALTER TABLE `fornecedores` DISABLE KEYS */;
 INSERT INTO `fornecedores` (`id`, `nome`, `cnpj_cpf`, `rua`, `numero`, `bairro`, `cep`, `telefone`) VALUES
 	(1, 'Novo Nome do Fornecedor', '72.362.391/0001-95', 'Rua Florianópolis', '26', 'São João', '89650-167', '(41) 3209-6253'),
 	(2, 'Comercial Sul Brasil', '37.705.252/0001-79', 'Rua das Palmeiras', '315', 'Trindade', '89285-850', '(46) 3141-5506'),
@@ -271,9 +261,8 @@ INSERT INTO `fornecedores` (`id`, `nome`, `cnpj_cpf`, `rua`, `numero`, `bairro`,
 	(100, 'Mercantil Vale Ltda', '60.257.584/0001-45', 'Rua das Flores', '75', 'Velha', '89823-844', '(42) 3705-7571'),
 	(101, 'Fornecedor ABC', '12.345.678/0001-90', 'Rua das Flores', '100', 'Centro', '89800000', '49 22334455'),
 	(102, 'Fornecedor ABC', '12.345.678/0001-90', 'Rua das Flores', '100', 'Centro', '89800000', '49 22334455');
-/*!40000 ALTER TABLE `fornecedores` ENABLE KEYS */;
 
--- Copiando estrutura para tabela producao.produtos
+
 CREATE TABLE IF NOT EXISTS `produtos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cod_barra` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -286,8 +275,6 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela producao.produtos: ~101 rows (aproximadamente)
-/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
 INSERT INTO `produtos` (`id`, `cod_barra`, `nome`, `descricao`, `estoque`, `valor`, `data_fabricacao`, `data_validade`) VALUES
 	(1, '7891234567890', 'Arroz 5kg', 'Arroz branco tipo 1', 400, 24.9, '2026-01-10 00:00:00', '2027-01-10 00:00:00'),
 	(2, '789300077084', 'Leite Tirol 1L', 'Produto de alta qualidade', 347, 83.55, '2025-10-26 00:00:00', '2026-12-25 00:00:00'),
@@ -390,9 +377,7 @@ INSERT INTO `produtos` (`id`, `cod_barra`, `nome`, `descricao`, `estoque`, `valo
 	(99, '789966841825', 'Café Melitta 500g', 'Produto de alta qualidade', 239, 118.76, '2025-05-22 00:00:00', '2026-11-05 00:00:00'),
 	(100, '789937312915', 'Sabão OMO 800g', 'Produto de alta qualidade', 231, 132.55, '2025-09-23 00:00:00', '2027-05-18 00:00:00'),
 	(101, '7891234567890', 'Miojo', 'Produto de alta qualidade', 100, 6.99, '2026-09-17 16:42:00', '2027-01-10 00:00:00');
-/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 
--- Copiando estrutura para tabela producao.compras
 CREATE TABLE IF NOT EXISTS `compras` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_fornecedor` int DEFAULT NULL,
@@ -405,7 +390,6 @@ CREATE TABLE IF NOT EXISTS `compras` (
   KEY `id_produto` (`id_produto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=609 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando estrutura para tabela producao.pedidos
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int DEFAULT NULL,
@@ -1139,17 +1123,14 @@ INSERT INTO `produtos` (`id`, `cod_barra`, `nome`, `descricao`, `estoque`, `valo
 
 SET FOREIGN_KEY_CHECKS=1;
 
--- Tabela auxiliar para auditoria das alterações
 CREATE TABLE IF NOT EXISTS `auditoria_registros` (`id` BIGINT NOT NULL AUTO_INCREMENT, `tabela_origem` VARCHAR(40) NOT NULL, `id_registro` INT NOT NULL, `operacao` VARCHAR(20) NOT NULL, `detalhes` JSON NULL, `usuario` VARCHAR(100) NOT NULL, `data_evento` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Procedures
 DELIMITER //
 CREATE PROCEDURE `cadastro_cliente`(IN p_nome VARCHAR(100), IN p_cnpj_cpf VARCHAR(18), IN p_rua VARCHAR(255), IN p_numero VARCHAR(50), IN p_bairro VARCHAR(100), IN p_cep VARCHAR(10), IN p_referencia VARCHAR(255), IN p_telefone VARCHAR(100)) BEGIN INSERT INTO clientes(nome,cnpj_cpf,rua,numero,bairro,cep,referencia,telefone) VALUES(p_nome,p_cnpj_cpf,p_rua,p_numero,p_bairro,p_cep,p_referencia,p_telefone); END//
 CREATE PROCEDURE `registrar_compra`(IN p_fornecedor INT, IN p_produto INT, IN p_quantidade FLOAT, IN p_codigo VARCHAR(100), IN p_data DATETIME) BEGIN INSERT INTO compras(id_fornecedor,id_produto,quantidade,codigo,data_compra) VALUES(p_fornecedor,p_produto,p_quantidade,p_codigo,p_data); END//
 CREATE PROCEDURE `relatorio_compras_fornecedor`(IN p_fornecedor INT, IN p_inicio DATE, IN p_fim DATE) BEGIN SELECT c.codigo, pr.nome AS produto, c.quantidade, c.data_compra, f.nome AS fornecedor FROM compras c JOIN fornecedores f ON f.id=c.id_fornecedor JOIN produtos pr ON pr.id=c.id_produto WHERE c.id_fornecedor=p_fornecedor AND c.data_compra BETWEEN p_inicio AND p_fim ORDER BY c.data_compra; END//
 DELIMITER ;
 
--- Triggers
 DELIMITER //
 CREATE TRIGGER `tg_entrada_estoque` AFTER INSERT ON compras FOR EACH ROW BEGIN UPDATE produtos SET estoque=estoque+NEW.quantidade WHERE id=NEW.id_produto; END//
 CREATE TRIGGER `tg_baixa_estoque` BEFORE INSERT ON pedidos FOR EACH ROW BEGIN UPDATE produtos SET estoque=estoque-NEW.quantidade WHERE id=NEW.id_produto; END//
@@ -1158,7 +1139,6 @@ CREATE TRIGGER `tg_audita_fornecedor` AFTER UPDATE ON fornecedores FOR EACH ROW 
 CREATE TRIGGER `tg_audita_produto` AFTER UPDATE ON produtos FOR EACH ROW BEGIN INSERT INTO auditoria_registros(tabela_origem,id_registro,operacao,detalhes,usuario) VALUES('produtos',OLD.id,'UPDATE',JSON_OBJECT('nome',OLD.nome,'estoque',OLD.estoque,'valor',OLD.valor),USER()); END//
 DELIMITER ;
 
--- Views
 CREATE OR REPLACE VIEW `vw_fornecedores_com_mais_compras` AS SELECT f.nome AS fornecedor, COUNT(c.id) AS total_compras FROM compras c JOIN fornecedores f ON f.id=c.id_fornecedor GROUP BY f.id,f.nome;
 CREATE OR REPLACE VIEW `vw_pedidos_acima_media` AS SELECT p.num_ped AS pedido, ROUND(p.quantidade*pr.valor,2) AS valor_total FROM pedidos p JOIN produtos pr ON pr.id=p.id_produto WHERE p.quantidade*pr.valor > (SELECT AVG(p2.quantidade*pr2.valor) FROM pedidos p2 JOIN produtos pr2 ON pr2.id=p2.id_produto);
 CREATE OR REPLACE VIEW `vw_produtos_mais_pedidos` AS SELECT pr.nome AS produto, SUM(p.quantidade) AS unidades_vendidas FROM pedidos p JOIN produtos pr ON pr.id=p.id_produto GROUP BY pr.id,pr.nome;
